@@ -55,7 +55,11 @@ public class SudokuBoard {
                 || alreadyInRow(n, row));
     }
 
-    private void fillBoardBacktrack(int n, int y, int x) {
+    public void fillBoardBacktrack(int n, int y, int x) {
+        
+          System.out.println("backTrack COKOLWIEK");  
+          
+          
         if (y == BoardSize) {
             // Board filled â€” done
             return;
@@ -92,6 +96,8 @@ public class SudokuBoard {
     /**
      * Generates a new (complete) layout
      */
+    
+    /*
     public void fillBoard() {
         int seed = this.board[0][0] < 9 ? this.board[0][0] + 1 : 1;
 
@@ -103,4 +109,7 @@ public class SudokuBoard {
         //fillBoardBacktrack(r.nextInt(8) + 1, 0, 0);
         fillBoardBacktrack(seed, 0, 0);
     }
+
+
+*/
 }

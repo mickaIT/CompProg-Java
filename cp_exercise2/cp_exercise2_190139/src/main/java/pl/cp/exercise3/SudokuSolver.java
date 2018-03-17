@@ -18,6 +18,11 @@ import static pl.cp.exercise3.SudokuBoard.BoardSize;
  */
 public class SudokuSolver {
 
+    public void solve(SudokuBoard board) {
+    }
+
+    ;
+
     public void unsolveBoard(SudokuBoard board) {
 
         Random rn = new Random(System.nanoTime());
@@ -29,7 +34,34 @@ public class SudokuSolver {
         }
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+    // PLZ DON'T LOOK X_X
+    int[][] index = new int[BoardSize][BoardSize];
+
     private void solversFillBoardBacktrack(int n, int y, int x, SudokuBoard board) {
+        
+        if (board.getBoard()[y][x] == 0) {
+            
         if (y == BoardSize) {
             // Board filled â€” done
             return;
@@ -38,49 +70,58 @@ public class SudokuSolver {
         if (n > 9) {
             // All numbers tried - backtrack
             if (x - 1 >= 0) {
-                int previous = board.getBoard()[y][x - 1];
-                board.getBoard()[y][x - 1] = 0;
+                
+                //TO CORRECT
+                // PREVIOUS SHOULD BE THE PREVIOUS CELL DIFFERENT THAN ZERO IN THE INDEX ARRAY 
+                int previous = index[y][x - 1];
+                index[y][x - 1] = 0;
                 solversFillBoardBacktrack(previous + 1, y, x - 1, board);
             } else if (y - 1 >= 0) {
-                int previous = board.getBoard()[y - 1][BoardSize - 1];
-                board.getBoard()[y - 1][BoardSize - 1] = 0;
-                solversFillBoardBacktrack(previous + 1, y - 1, BoardSize - 1 , board);
+                int previous = index[y - 1][BoardSize - 1];
+                index[y - 1][BoardSize - 1] = 0;
+                solversFillBoardBacktrack(previous + 1, y - 1, BoardSize - 1, board);
             }
-        } else {
-            if (board.tryNumber(n, y, x)) {
-                // Number fits â€” onwards
-                board.getBoard()[y][x] = n;
-                if (x + 1 < BoardSize) {
-                    solversFillBoardBacktrack(1, y, x + 1, board);
+        } 
+        
+        else 
+
+            {
+                if (board.tryNumber(n, y, x)) {
+                    // Number fits â€” onwards
+                    index[y][x] = n;
+                    if (x + 1 < BoardSize) {
+                        solversFillBoardBacktrack(1, y, x + 1, board);
+                    } else {
+                        solversFillBoardBacktrack(1, y + 1, 0, board);
+                    }
                 } else {
-                    solversFillBoardBacktrack(1, y + 1, 0, board);
+                    // Otherwise try next number
+                    solversFillBoardBacktrack(n + 1, y, x, board);
                 }
-            } else {
-                // Otherwise try next number
-                solversFillBoardBacktrack(n + 1, y, x, board);
             }
         }
 
     }
-
+     */
     /**
      * Generates a new (complete) layout
+     *
      * @param board
      */
+    /*
     public void solversFillBoard(SudokuBoard board) {
         //int seed = this.board[0][0] < 9 ? this.board[0][0] + 1 : 1;
 
-// Spoiler alert: index == 3
+        int seed = 1;
 
-        int seed = 0;
-        
         for (int y = 0; y < BoardSize; y++) {
             for (int x = 0; x < BoardSize; x++) {
-                
+
                 if (board.getBoard()[y][x] == 0) {
-                
-                    seed = board.getBoard()[y][x];
+
+                    index[y][x] = 1;
                 }
+
                 solversFillBoardBacktrack(seed, 0, 0, board);
             }
         }
@@ -89,19 +130,5 @@ public class SudokuSolver {
         //fillBoardBacktrack(r.nextInt(8) + 1, 0, 0);
     }
 
+     */
 }
-/*  public void solve(SudokuBoard board) {
-
-        int seed = board.getBoard()[0][0] < 9 ? board.getBoard()[0][0]
-        ] + 1 : 1;
-
-        for (int y = 0; y < board.BoardSize; y++) {
-            Arrays.fill(board.getBoard()[y], 0);
-        }
-
-        //Random r = new Random(System.nanoTime());
-        //fillBoardBacktrack(r.nextInt(8) + 1, 0, 0);
-        board.fillBoardBacktrack(seed, 0, 0);
-
-    }
-}*/
